@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Game · Parcial 2026</title>
+  <title> El Patico · Parcial 2026</title>
   <link rel="icon" href="./img/usb.jpg">
 
   <!-- Tipografías -->
@@ -40,17 +40,16 @@
         <img class="card__logo" src="./img/usb.jpg" alt="Universidad de San Buenaventura Cali">
         <div>
           <p class="eyebrow">Computación Gráfica · Parcial 2026</p>
-          <h1 class="title">The <span>Game</span></h1>
+          <h1 class="title">El <span>Patico</span></h1>
         </div>
       </header>
 
-      <p class="lead">Explora el mundo sin tocar sus límites. Tienes <strong>3 vidas</strong>.</p>
+      <p class="lead">No salgas del mundo. Tienes <strong> 3 vidas</strong>.</p>
 
       <ul class="keys">
         <li><span class="keycap">W</span><span class="keycap">S</span><em>Avanzar / retroceder</em></li>
         <li><span class="keycap">A</span><span class="keycap">D</span><em>Girar</em></li>
         <li><span class="keycap keycap--wide">ESC</span><em>Pausa</em></li>
-        <li><span class="keycap keycap--wide">CTRL</span><em>1ª/3ª Persona</em></li>
       </ul>
 
       <button id="playBtn" class="btn" type="button">
@@ -60,21 +59,20 @@
     </main>
   </div>
 
-  <!-- GAME OVER -->
+  <!-- ===================== GAME OVER ===================== -->
   <div id="lost" class="overlay overlay--lost" hidden>
     <main class="card card--center">
       <p class="eyebrow">Perdiste GG EZ</p>
-      <h1 class="title title--lost">Game <span>Over</span></h1>
-      <p class="lead">No mas vidas. ¿Quieres volver a perder?</p>
+      <h1 class="title title--lost">Realmente <span>Eres El Patico Mayor</span></h1>
+      <p class="lead">¿No entendiste que no salieras del mundo?</p>
       <button id="retryBtn" class="btn" type="button">
-        <span>Intentalo</span>
+        <span>Reintentar</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
       </button>
     </main>
   </div>
 
-  <!--Interfaz Dentro Del Juego--> 
-
+  <!-- ===================== HUD ===================== -->
   <div id="hud" hidden>
     <div class="chip">
       <span class="chip__label">Tiempo</span>
@@ -86,12 +84,12 @@
     </div>
   </div>
 
-  <!-- Perder Vida -->
-  <div id="damage" class="damage" hidden>
-    <p>¿No sabes quedarte dentro del mundo? <strong>−1 vida</strong></p>
+  <!-- Aviso al perder una vida -->
+  <div id="damage" class="damage damage--on" hidden>
+    <p><span id="damageText">No salgas del mundo!</span> <strong>−1 vida</strong></p>
   </div>
 
-  <!-- Audios -->
+  <!-- Audios del juego -->
   <audio id="myAudio" src="./songs/backgroundSound.mp3" loop preload="auto"></audio>
   <audio id="endGame" src="./songs/gameOverCut.mp3" preload="auto"></audio>
 </body>
