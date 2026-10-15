@@ -1,7 +1,7 @@
 /* =========================================================
    The Game · Parcial 2026 — Computación Gráfica
    ========================================================= */
-
+ 
 :root {
   --ink: #0b1a2e;
   --ink-soft: #3d5270;
@@ -17,7 +17,7 @@
   --font-display: "Bricolage Grotesque", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
 }
-
+ 
 *,
 *::before,
 *::after {
@@ -25,22 +25,22 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+ 
 html,
 body {
   height: 100%;
   overflow: hidden;
 }
-
+ 
 body {
   background: var(--sky);
   color: var(--ink);
   font-family: var(--font-display);
   -webkit-font-smoothing: antialiased;
 }
-
+ 
 [hidden] { display: none !important; }
-
+ 
 #app {
   position: fixed;
   inset: 0;
@@ -48,7 +48,7 @@ body {
   height: 100%;
   display: block;
 }
-
+ 
 /* ---------- Overlays (menú y game over) ---------- */
 .overlay {
   position: fixed;
@@ -65,13 +65,13 @@ body {
   animation: fadeIn 0.4s ease both;
   overflow: hidden;
 }
-
+ 
 .overlay--lost {
   background:
     radial-gradient(90% 70% at 50% 50%, rgba(255, 90, 95, 0.35) 0%, transparent 70%),
     linear-gradient(180deg, rgba(11, 26, 46, 0.75), rgba(11, 26, 46, 0.6));
 }
-
+ 
 /* ---------- Tarjeta ---------- */
 .card {
   position: relative;
@@ -84,17 +84,17 @@ body {
   -webkit-backdrop-filter: blur(16px);
   animation: rise 0.6s cubic-bezier(.2, .9, .3, 1.2) both;
 }
-
+ 
 .card--center { text-align: center; }
 .card--center .btn { margin-inline: auto; }
-
+ 
 .card__head {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 18px;
 }
-
+ 
 .card__logo {
   width: 58px;
   height: 58px;
@@ -104,7 +104,7 @@ body {
   box-shadow: 0 6px 16px -6px rgba(11, 26, 46, 0.4);
   flex-shrink: 0;
 }
-
+ 
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -113,31 +113,31 @@ body {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-
+ 
 .title {
   font-size: clamp(42px, 9vw, 60px);
   font-weight: 800;
   line-height: 0.95;
   letter-spacing: -0.03em;
 }
-
+ 
 .title span {
   color: var(--sky);
   font-style: italic;
 }
-
+ 
 .title--lost { margin: 8px 0 4px; }
 .title--lost span { color: var(--coral); }
-
+ 
 .lead {
   font-size: 16px;
   line-height: 1.5;
   color: var(--ink-soft);
   margin-bottom: 22px;
 }
-
+ 
 .lead strong { color: var(--ink); }
-
+ 
 /* ---------- Controles (keycaps) ---------- */
 .keys {
   list-style: none;
@@ -149,20 +149,20 @@ body {
   background: rgba(11, 26, 46, 0.05);
   border: 1px solid var(--line);
 }
-
+ 
 .keys li {
   display: flex;
   align-items: center;
   gap: 6px;
 }
-
+ 
 .keys em {
   font-style: normal;
   font-size: 14px;
   color: var(--ink-soft);
   margin-left: 8px;
 }
-
+ 
 .keycap {
   display: inline-grid;
   place-items: center;
@@ -178,9 +178,9 @@ body {
   border-radius: 8px;
   box-shadow: 0 3px 0 rgba(11, 26, 46, 0.18);
 }
-
+ 
 .keycap--wide { min-width: 52px; }
-
+ 
 /* ---------- Botón ---------- */
 .btn {
   display: inline-flex;
@@ -201,17 +201,17 @@ body {
   cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.2s ease;
 }
-
+ 
 .btn svg {
   width: 20px;
   height: 20px;
   fill: currentColor;
 }
-
+ 
 .btn:hover { filter: brightness(1.06); transform: translateY(-1px); }
 .btn:active { transform: translateY(4px); box-shadow: 0 1px 0 #c27c06, 0 6px 12px -8px rgba(245, 158, 11, 0.8); }
 .btn:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
-
+ 
 /* ---------- Burbujas decorativas ---------- */
 .bubbles span {
   position: absolute;
@@ -222,14 +222,14 @@ body {
   animation: bubble linear infinite;
   pointer-events: none;
 }
-
+ 
 .bubbles span:nth-child(1) { left: 8%;  width: 34px; height: 34px; animation-duration: 11s; }
 .bubbles span:nth-child(2) { left: 22%; width: 18px; height: 18px; animation-duration: 8s;  animation-delay: 2s; }
 .bubbles span:nth-child(3) { left: 48%; width: 46px; height: 46px; animation-duration: 14s; animation-delay: 4s; }
 .bubbles span:nth-child(4) { left: 68%; width: 22px; height: 22px; animation-duration: 9s;  animation-delay: 1s; }
 .bubbles span:nth-child(5) { left: 84%; width: 38px; height: 38px; animation-duration: 12s; animation-delay: 3s; }
 .bubbles span:nth-child(6) { left: 93%; width: 14px; height: 14px; animation-duration: 7s;  animation-delay: 5s; }
-
+ 
 /* ---------- HUD ---------- */
 #hud {
   position: fixed;
@@ -242,7 +242,7 @@ body {
   gap: 12px;
   pointer-events: none;
 }
-
+ 
 .chip {
   display: flex;
   align-items: baseline;
@@ -254,7 +254,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   box-shadow: 0 10px 24px -12px rgba(11, 26, 46, 0.5);
 }
-
+ 
 .chip__label {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -263,7 +263,7 @@ body {
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-
+ 
 .chip__value {
   font-family: var(--font-mono);
   font-size: 22px;
@@ -271,29 +271,62 @@ body {
   font-variant-numeric: tabular-nums;
   color: var(--ink);
 }
-
+ 
+/* ---------- Vidas (corazones) ---------- */
+.chip__value--lives { letter-spacing: 0.12em; color: var(--coral); }
+.heart { display: inline-block; transition: transform 0.2s ease, opacity 0.2s ease; }
+.heart--lost { opacity: 0.45; transform: scale(0.85); }
+ 
+/* ---------- Aviso de vida perdida ---------- */
+.damage {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: radial-gradient(90% 80% at 50% 50%, transparent 40%, rgba(255, 90, 95, 0.55) 100%);
+}
+.damage p {
+  padding: 14px 26px;
+  border-radius: 999px;
+  background: var(--paper);
+  box-shadow: 0 10px 24px -12px rgba(11, 26, 46, 0.5);
+  font-size: 22px;
+  font-weight: 600;
+}
+.damage strong { color: var(--coral); font-weight: 800; }
+.damage--on { animation: damageFlash 1.4s ease both; }
+ 
 /* ---------- Animaciones ---------- */
+@keyframes damageFlash {
+  0%   { opacity: 0; }
+  12%  { opacity: 1; }
+  70%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+ 
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
+ 
 @keyframes rise {
   from { opacity: 0; transform: translateY(24px) scale(0.97); }
   to   { opacity: 1; transform: none; }
 }
-
+ 
 @keyframes bubble {
   0%   { transform: translate(0, 0); opacity: 0; }
   10%  { opacity: 1; }
   50%  { transform: translate(18px, -55vh); }
   100% { transform: translate(-10px, -115vh); opacity: 0; }
 }
-
+ 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
-
+ 
 @media (max-width: 480px) {
   .card { padding: 24px 20px 22px; }
   .chip__value { font-size: 18px; }

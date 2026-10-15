@@ -50,6 +50,7 @@
         <li><span class="keycap">W</span><span class="keycap">S</span><em>Avanzar / retroceder</em></li>
         <li><span class="keycap">A</span><span class="keycap">D</span><em>Girar</em></li>
         <li><span class="keycap keycap--wide">ESC</span><em>Pausa</em></li>
+        <li><span class="keycap keycap--wide">CTRL</span><em>1ª/3ª Persona</em></li>
       </ul>
 
       <button id="playBtn" class="btn" type="button">
@@ -59,20 +60,21 @@
     </main>
   </div>
 
-  <!-- ===================== GAME OVER ===================== -->
+  <!-- GAME OVER -->
   <div id="lost" class="overlay overlay--lost" hidden>
     <main class="card card--center">
-      <p class="eyebrow">Fin de la partida</p>
+      <p class="eyebrow">Perdiste GG EZ</p>
       <h1 class="title title--lost">Game <span>Over</span></h1>
-      <p class="lead">Te quedaste sin vidas. ¿Otra ronda?</p>
+      <p class="lead">No mas vidas. ¿Quieres volver a perder?</p>
       <button id="retryBtn" class="btn" type="button">
-        <span>Reintentar</span>
+        <span>Intentalo</span>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
       </button>
     </main>
   </div>
 
-  <!-- ===================== HUD ===================== -->
+  <!--Interfaz Dentro Del Juego--> 
+
   <div id="hud" hidden>
     <div class="chip">
       <span class="chip__label">Tiempo</span>
@@ -80,11 +82,16 @@
     </div>
     <div class="chip">
       <span class="chip__label">Vidas</span>
-      <span class="chip__value" id="lives">3</span>
+      <span class="chip__value chip__value--lives" id="lives" aria-live="polite">♥♥♥</span>
     </div>
   </div>
 
-  <!-- Audios del juego -->
+  <!-- Perder Vida -->
+  <div id="damage" class="damage" hidden>
+    <p>¿No sabes quedarte dentro del mundo? <strong>−1 vida</strong></p>
+  </div>
+
+  <!-- Audios -->
   <audio id="myAudio" src="./songs/backgroundSound.mp3" loop preload="auto"></audio>
   <audio id="endGame" src="./songs/gameOverCut.mp3" preload="auto"></audio>
 </body>
