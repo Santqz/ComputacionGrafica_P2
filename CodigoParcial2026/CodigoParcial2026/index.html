@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Game · Parcial 2026</title>
+  <link rel="icon" href="./img/usb.jpg">
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <!-- Import map: three.js y sus addons se cargan desde el CDN -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.186.1/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.1/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- Único punto de entrada: main.js se encarga de todos los import -->
+  <script type="module" src="./src/main.js"></script>
+</head>
+<body>
+  <canvas id="app"></canvas>
+
+  <!-- ===================== MENÚ DE INICIO ===================== -->
+  <div id="blocker" class="overlay">
+    <div class="bubbles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <main class="card">
+      <header class="card__head">
+        <img class="card__logo" src="./img/usb.jpg" alt="Universidad de San Buenaventura Cali">
+        <div>
+          <p class="eyebrow">Computación Gráfica · Parcial 2026</p>
+          <h1 class="title">The <span>Game</span></h1>
+        </div>
+      </header>
+
+      <p class="lead">Explora el mundo sin tocar sus límites. Tienes <strong>3 vidas</strong>.</p>
+
+      <ul class="keys">
+        <li><span class="keycap">W</span><span class="keycap">S</span><em>Avanzar / retroceder</em></li>
+        <li><span class="keycap">A</span><span class="keycap">D</span><em>Girar</em></li>
+        <li><span class="keycap keycap--wide">ESC</span><em>Pausa</em></li>
+      </ul>
+
+      <button id="playBtn" class="btn" type="button">
+        <span id="playLabel">Jugar</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+      </button>
+    </main>
+  </div>
+
+  <!-- ===================== GAME OVER ===================== -->
+  <div id="lost" class="overlay overlay--lost" hidden>
+    <main class="card card--center">
+      <p class="eyebrow">Fin de la partida</p>
+      <h1 class="title title--lost">Game <span>Over</span></h1>
+      <p class="lead">Te quedaste sin vidas. ¿Otra ronda?</p>
+      <button id="retryBtn" class="btn" type="button">
+        <span>Reintentar</span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5V2L7 6l5 4V7a5 5 0 1 1-5 5H5a7 7 0 1 0 7-7z"/></svg>
+      </button>
+    </main>
+  </div>
+
+  <!-- ===================== HUD ===================== -->
+  <div id="hud" hidden>
+    <div class="chip">
+      <span class="chip__label">Tiempo</span>
+      <span class="chip__value"><span id="minutes">00</span>:<span id="seconds">00</span></span>
+    </div>
+    <div class="chip">
+      <span class="chip__label">Vidas</span>
+      <span class="chip__value" id="lives">3</span>
+    </div>
+  </div>
+
+  <!-- Audios del juego -->
+  <audio id="myAudio" src="./songs/backgroundSound.mp3" loop preload="auto"></audio>
+  <audio id="endGame" src="./songs/gameOverCut.mp3" preload="auto"></audio>
+</body>
+</html>
